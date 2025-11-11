@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
 
-import { CheckArrowIcon } from "../assets/icons/CheckArrowIcon";
-import { RocketIcon } from "../assets/icons/RocketIcon";
 import { MonitorDashboardIcon } from "../assets/icons/MonitorDashboardIcon";
 import { MobileIcon } from "../assets/icons/MobileIcon";
 

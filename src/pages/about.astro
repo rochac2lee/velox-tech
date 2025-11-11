@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import { Navbar } from '../components/Navbar.jsx'
 import { HeroAboutUs } from '../components/HeroAboutUs.jsx'
-import { AboutUs } from '../components/AboutUs'
+import { About as AboutComponent } from '../components/About.jsx'
 import { Footer } from '../components/Footer.jsx'
 import { ScrollUpButton } from '../components/ScrollUpButton'
 import '../styles/Theme.css'
@@ -12,7 +12,7 @@ import '../styles/Diagonals.css'
 <Layout title="Velox">
   <Navbar client:load />
   <HeroAboutUs client:load />
-  <AboutUs client:load />
+  <AboutComponent client:load />
   <Footer />
   <ScrollUpButton client:load />
 </Layout>
