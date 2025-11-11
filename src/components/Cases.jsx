@@ -15,11 +15,11 @@ const casesData = [
   {
     id: 1,
     imageUrl: caseJess.src,
-    title: "Mentoria Jessik Custódio",
+    title: "Site pessoal de Jessik Custódio",
     brand: "Jessik Custódio",
     description:
-      "Landing page completa para mentoria profissional com captação de leads integrada.",
-    tags: ["Landing page", "Captação"],
+      "Landing page completa para divulgar o perfil profissional de Jessik Custódio.",
+    tags: ["Landing page", "Divulgação", "Perfil profissional"],
     site: "jessikcustodio.com.br",
     link: "https://jessikcustodio.com.br",
   },
@@ -29,8 +29,8 @@ const casesData = [
     title: "Campyng Reservas",
     brand: "Campyng",
     description:
-      "Aplicativo web responsivo para reservas e gestão de campings em todo o Brasil.",
-    tags: ["Aplicativo", "Reserva online"],
+      "Plataforma web responsivo para reservas e gestão de campings em todo o Brasil.",
+    tags: ["Sistema web", "Campings", "Reservas", "Online"],
     site: "campyng.com.br",
     link: "https://campyng.com.br",
   },
@@ -40,8 +40,8 @@ const casesData = [
     title: "IFPA Requerimentos",
     brand: "IFPA",
     description:
-      "Sistema acadêmico para digitalização de fluxos internos e acompanhamento de solicitações.",
-    tags: ["Sistema web", "Academia"],
+      "Sistema acadêmico para que os alunos façam os requerimentos de forma online.",
+    tags: ["Sistema web", "Faculdade", "Requerimentos", "Online"],
     site: "ifparequerimentos.replit.app",
     link: "https://ifparequerimentos.replit.app",
   },
@@ -51,8 +51,8 @@ const casesData = [
     title: "Eduqfy Educação",
     brand: "Eduqfy",
     description:
-      "Plataforma de ensino com videoaulas, trilhas de conhecimento e indicadores de engajamento.",
-    tags: ["Plataforma", "Educação"],
+      "Plataforma de gestão de eventos com inscrição online, gerenciamento de participantes e PDV.",
+    tags: ["Sistema web", "Eventos", "PDV", "Inscrição online", "Financeiro"],
     site: "eduqfy.com.br",
     link: "https://eduqfy.com.br",
   },
@@ -62,8 +62,8 @@ const casesData = [
     title: "Portal Drive Expert",
     brand: "Drive Expert Seg",
     description:
-      "Portal para cotação instantânea de seguros, com área do cliente e acompanhamento de propostas.",
-    tags: ["Portal web", "Seguros"],
+      "Drive corporativo para armazenamento de pastas e arquivos de forma segura e organizada.",
+    tags: ["Sistema web", "Drive corporativo", "Arquivos", "Segurança"],
     site: "drive.expert-seg.com",
     link: "https://drive.expert-seg.com",
   },
