@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import code from "../assets/images/code.svg";
-import { CheckArrowIcon } from "../assets/icons/CheckArrowIcon";
 
 export const PrivacyPolicy = () => {
   return (
