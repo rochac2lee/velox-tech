@@ -197,14 +197,14 @@ export const LightswindCarousel = ({
 
                 <div className="flex flex-col flex-1 px-6 py-6 gap-4 text-left">
                   <div className="flex flex-col gap-1">
-                    {item.title ? (
+                    {item.brand ? (
                       <h3 className="text-xl text-white leading-tight">
-                        {item.title}
+                        {item.brand}
                       </h3>
                     ) : null}
-                    {item.brand ? (
+                    {item.site ? (
                       <span className="text-sm text-secondaryText/80">
-                        {item.brand}
+                        {item.site}
                       </span>
                     ) : null}
                   </div>
