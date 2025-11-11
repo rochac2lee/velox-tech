@@ -5,17 +5,17 @@ import { VeloxLogo } from "../assets/logos/VeloxLogo";
 import { UserIcon } from "../assets/icons/UserIcon";
 
 const navbarLinks = [
-  { label: "Home", href: "/#home", ariaLabel: "Home" },
-  { label: "Recursos", href: "/#features", ariaLabel: "Features" },
-  { label: "Planos", href: "/#pricing", ariaLabel: "Pricing" },
-  // { label: "Feedback", href: "/#feedback", ariaLabel: "Feedback" },
+  { label: "Sobre nós", href: "/#about", ariaLabel: "About" },
+  { label: "Nosso Processo", href: "/#features", ariaLabel: "Features" },
+  { label: "Cases", href: "/#cases", ariaLabel: "cases" },
+  { label: "Depoimentos", href: "/#feedback", ariaLabel: "Feedback" },
+  { label: "Pré-briefing", href: "/#pricing", ariaLabel: "Pricing" },
   { label: "FAQ", href: "/#FAQ", ariaLabel: "FAQ" },
-  { label: "Fale Conosco", href: "/#contact", ariaLabel: "contact" },
 ];
 
 const goToPlans = () => {
-  window.location.href = '/#pricing'
-}
+  window.location.href = "/#pricing";
+};
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +49,7 @@ export const Navbar = () => {
           <div className="hidden lg:flex h-full pl-12 pb-2">
             {navbarLinks.map(({ href, label, ariaLabel }) => (
               <a
-                className="text-white lg:text-base text-2xl  leading-6 mr-4 ml-4   2xl:mr-6 2xl:ml-6 cursor-pointer font-normal lg:font-medium hover:scale-110 transition h-full pt-2"
+                className="text-white lg:text-base text-2xl  leading-6 mr-4 ml-4   2xl:mr-4 2xl:ml-4 cursor-pointer font-normal lg:font-medium hover:scale-110 transition h-full pt-2"
                 href={href}
                 aria-label={ariaLabel}
                 key={label}
@@ -73,16 +73,16 @@ export const Navbar = () => {
             >
               Criar conta grátis
             </button>
-            <a
+            {/* <a
               className="text-white main-border-gray rounded-xl
            bg-bgDark2 hover:bg-bgDark3  border-gray-700 pl-6 pr-8 pt-2 pb-2 text-sm flex gap-3"
-              href="https://console.veloxotp.com"
+              href="https://console.veloxtech.com.br"
               target="_blank"
               aria-label="source code"
             >
               <UserIcon />
               <span className="pt-px">Entrar</span>
-            </a>
+            </a> */}
           </div>
         </motion.div>
         <div

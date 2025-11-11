@@ -178,7 +178,7 @@ export const SubscribeModal = ({ setIsOpen }) => {
   const finish = () => {
     setIsOpen(false);
     setIsSuccessModalOpen(false);
-    window.location.href = 'https://console.veloxotp.com'
+    window.location.href = "https://console.veloxtech.com.br";
   };
 
   return (
@@ -199,22 +199,41 @@ export const SubscribeModal = ({ setIsOpen }) => {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex relative">
-                {/* Informações do plano à esquerda */}
+                {/* Informações do pré-briefing à esquerda */}
                 <div className="w-1/2 hidden lg:inline">
                   <h2 className="mt-6 mb-2 text-4xl text-primaryText">
-                    {planSelected.title || "Plano selecionado"}
+                    {planSelected.title || "Serviço selecionado"}
                   </h2>
                   <p className="text-2xl text-secondaryColor mr-8">
                     {planSelected.description ||
-                      "Descrição do plano selecionado"}
+                      "Selecione um serviço para visualizar o resumo aqui."}
                   </p>
-                  <ul className="mb-6 text-primaryText mt-8">
-                    {(planSelected.benefits || []).map((benefit, index) => (
-                      <li className="mb-4 flex" key={index}>
-                        <CheckArrowIcon />
-                        <span>{benefit}</span>
-                      </li>
-                    ))}
+                  <ul className="mb-6 text-primaryText mt-8 space-y-4">
+                    <li className="flex items-start gap-3">
+                      <CheckArrowIcon />
+                      <span>
+                        Tipo de serviço:{" "}
+                        <strong>{planSelected.title || "Não informado"}</strong>
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckArrowIcon />
+                      <span>
+                        Hospedagem gerenciada:{" "}
+                        <strong>
+                          {planSelected.includeHosting ? "Sim" : "Não"}
+                        </strong>
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckArrowIcon />
+                      <span>
+                        Suporte técnico mensal:{" "}
+                        <strong>
+                          {planSelected.includeSupport ? "Sim" : "Não"}
+                        </strong>
+                      </span>
+                    </li>
                   </ul>
                 </div>
 

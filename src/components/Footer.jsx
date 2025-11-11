@@ -11,13 +11,13 @@ const footerData = [
   {
     title: "Important Links",
     items: [
-      {title: "Termos e Condições", href:"/terms"},
-      {title: "Política de Privacidade", href:"/privacy-policy"},
+      { title: "Termos e Condições", href: "/terms" },
+      { title: "Política de Privacidade", href: "/privacy-policy" },
     ],
   },
   {
     title: "Company",
-    items: [{title: "Sobre nós", href:"about"}],
+    items: [{ title: "Sobre nós", href: "about" }],
   },
 ];
 
@@ -34,12 +34,15 @@ export const Footer = () => {
                 </div>
               </div>
               <p className="mb-10 mt-4 sm:w-[22rem] lg:w-[20rem] xl:w-[24rem] text-gray-400 leading-loose text-center lg:text-left mx-auto lg:mx-0">
-                Garanta a segurança do seu SAAS com autenticação em dois fatores via SMS e e-mail.
+                Desenvolvemos soluções digitais essenciais, fornecendo a base
+                técnica especializada que os empreendedores precisam para
+                validar suas ideias de negócio de forma rápida, eficiente e
+                acessível, transformando conceitos em realidade funcional.
               </p>
               {/* <div className="w-36 mx-auto lg:mx-0">
                 <a
                   className="inline-block w-10  h-10 mr-2 p-2 pt-[0.55rem] pl-[0.55rem] outlined-button"
-                  href="https://www.instagram.com/veloxotp"
+                  href="https://instagram.com/veloxtech"
                   target="_blank"
                   aria-label="Instagram"
                 >
@@ -65,9 +68,7 @@ export const Footer = () => {
                 </ul> */}
               </div>
               <div className="w-full md:w-1/3 lg:w-auto mb-16 md:mb-0">
-                <h3 className="mb-6 text-2xl text-primaryText">
-                  Links Úteis
-                </h3>
+                <h3 className="mb-6 text-2xl text-primaryText">Links Úteis</h3>
                 <ul>
                   {footerData[1].items.map((item, index) => (
                     <li key={`${item}-${index}`} className="mb-4">

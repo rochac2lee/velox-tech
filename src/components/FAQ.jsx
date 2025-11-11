@@ -4,39 +4,39 @@ import { CheckArrowIcon } from "../assets/icons/CheckArrowIcon";
 
 const FAQData = [
   {
-    question: "O que é a Velox OTP?",
+    question: "O que a Velox Tech faz?",
     answer:
-      "A Velox OTP é uma solução de autenticação em dois fatores (2FA) que permite o envio de códigos de verificação por SMS e e-mail, garantindo mais segurança para acessos e transações.",
+      "Somos uma empresa de desenvolvimento e consultoria de tecnologia focada em tirar ideias do papel. Combinamos estratégia, design e engenharia para construir MVPs robustos e preparar seu negócio para crescer com segurança.",
   },
   {
-    question: "Como funciona o envio de códigos OTP?",
+    question: "Como funciona o processo de criação do MVP?",
     answer:
-      "Nossa API permite que sua aplicação envie códigos de verificação de forma instantânea para validar usuários. Basta integrar a API com a sua plataforma, enviar o código usando o endpoint de envio e validar com o endpoint de validação.",
+      "Trabalhamos em ciclos curtos. Começamos com discovery para alinhar objetivos e métricas, evoluímos para product design com protótipos validáveis e seguimos para desenvolvimento ágil com entregas semanais acompanhadas por você.",
   },
   {
-    question: "A API da Velox OTP é fácil de integrar?",
+    question: "Que tipo de clientes a Velox Tech atende?",
     answer:
-      "Sim! Nossa API foi desenvolvida para ser intuitiva e de fácil implementação. Contamos com uma documentação clara e exemplos práticos para acelerar sua integração.",
+      "Atuamos com founders em estágio inicial, times de inovação e empresas que precisam validar novas unidades digitais. Adaptamos o formato de squad dedicado ou task force rápida conforme o desafio.",
   },
   {
-    question: "Quais são os benefícios de usar a Velox OTP?",
+    question: "Quais são os diferenciais da Velox Tech?",
     answer:
-      "🔹 Segurança reforçada para acessos e transações🔹 Envio ultrarrápido de OTPs via SMS e e-mail<br>🔹 Escalabilidade para qualquer tamanho de negócio",
+      "🔹 Equipe multidisciplinar com mais de 10 anos em produtos digitais<br>🔹 Plano de execução orientado por métricas de negócio<br>🔹 Acompanhamento próximo do cliente em cada decisão de produto",
   },
   {
-    question: "A Velox OTP suporta grandes volumes de envio?",
+    question: "Qual o prazo médio para um MVP?",
     answer:
-      "Sim! Nossa infraestrutura é escalável e suporta um alto volume de requisições sem comprometer o desempenho.",
+      "Projetos estratégicos levam entre 6 e 12 semanas, dependendo do escopo e integrações. Definimos um cronograma realista logo após o pré-briefing e o discovery compartilhado.",
   },
   {
-    question: "Como posso testar a API?",
+    question: "Vocês continuam após o lançamento?",
     answer:
-      "Você pode criar uma conta gratuita e acessar nossa documentação para testar a API e enviar seus primeiros OTPs rapidamente.",
+      "Sim. Oferecemos planos de evolução contínua, squads de growth e suporte técnico mensal para garantir estabilidade, novas features e acompanhamento de métricas.",
   },
   {
-    question: "Como posso obter suporte?",
+    question: "Como dou o primeiro passo com a Velox Tech?",
     answer:
-      "Nosso time de suporte está pronto para ajudar! Você pode entrar em contato pelo e-mail suporte@veloxotp.com.",
+      "Preencha o pré-briefing no site ou fale com a gente em contato@veloxtech.com.br. Em seguida conduzimos uma reunião de diagnóstico para definir investimento, roadmap e time ideal.",
   },
 ];
 
@@ -95,15 +95,24 @@ const FAQBox = ({ defaultOpen, idx, title, content }) => {
             <ul className="mb-6 text-primaryText">
               <li className="mb-4 flex">
                 <CheckArrowIcon />
-                <span>Segurança reforçada para acessos e transações</span>
+                <span>
+                  Squad dedicado com especialistas em produto, design e
+                  engenharia.
+                </span>
               </li>
               <li className="mb-4 flex">
                 <CheckArrowIcon />
-                <span>Envio ultrarrápido de OTPs via SMS e e-mail</span>
+                <span>
+                  Roadmap construído junto com você, sempre orientado a
+                  métricas.
+                </span>
               </li>
               <li className="mb-4 flex">
                 <CheckArrowIcon />
-                <span>Escalabilidade para qualquer tamanho de negócio</span>
+                <span>
+                  Suporte estratégico após o lançamento para acelerar a
+                  evolução.
+                </span>
               </li>
             </ul>
           </div>
