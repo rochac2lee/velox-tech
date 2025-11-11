@@ -5,6 +5,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 
 import caseJess from "../assets/images/cases/jessikcustodio.com.br.png";
+import caseCCI from "../assets/images/cases/canal-comunicacao-interna.png";
 import caseCampyng from "../assets/images/cases/campyng.com.br.png";
 import caseIfpa from "../assets/images/cases/ifparequerimentos.replit.app.png";
 import caseEduqfy from "../assets/images/cases/eduqfy.com.br.png";
@@ -25,17 +26,17 @@ const casesData = [
   },
   {
     id: 2,
-    imageUrl: caseCampyng.src,
-    title: "Campyng Reservas",
-    brand: "Campyng",
+    imageUrl: caseCCI.src,
+    title: "Canal de Comunicação Interna ",
+    brand: "Canal de Comunicação Interna",
     description:
-      "Plataforma web responsivo para reservas e gestão de campings em todo o Brasil.",
-    tags: ["Sistema web", "Campings", "Reservas", "Online"],
-    site: "campyng.com.br",
-    link: "https://campyng.com.br",
+      "Canal de comunicação interna 100% anonima para empresas, com sistema de login e controle de acesso.",
+    tags: ["Sistema web", "Comunicação interna", "Empresa", "Anonimato"],
+    site: "",
+    link: "",
   },
   {
-    id: 3,
+    id: 4,
     imageUrl: caseIfpa.src,
     title: "IFPA Requerimentos",
     brand: "IFPA",
@@ -46,7 +47,7 @@ const casesData = [
     link: "https://ifparequerimentos.replit.app",
   },
   {
-    id: 4,
+    id: 5,
     imageUrl: caseEduqfy.src,
     title: "Eduqfy Educação",
     brand: "Eduqfy",
@@ -57,7 +58,7 @@ const casesData = [
     link: "https://eduqfy.com.br",
   },
   {
-    id: 5,
+    id: 6,
     imageUrl: caseDrive.src,
     title: "Portal Drive Expert",
     brand: "Drive Expert Seg",
