@@ -1,20 +1,20 @@
 import { motion } from "framer-motion";
 
-import { MonitorDashboardIcon } from "../assets/icons/MonitorDashboardIcon";
-import { MobileIcon } from "../assets/icons/MobileIcon";
+import { BullseyeArrowIcon } from "../assets/icons/BullseyeArrowIcon";
+import { BuildingFlagIcon } from "../assets/icons/BuildingFlagIcon";
 
 const aboutData = [
   {
     title: "Nossa Missão",
     description:
       "Desenvolver soluções digitais essenciais, fornecendo a base técnica especializada que os empreendedores precisam para validar suas ideias de negócio de forma rápida, eficiente e acessível, transformando conceitos em realidade funcional.",
-    icon: <MonitorDashboardIcon />,
+    icon: <BullseyeArrowIcon />,
   },
   {
     title: "Nosso Propósito",
     description:
       "Ser o catalisador tecnológico para a próxima geração de empreendedores, conectando a visão de negócio à execução técnica de excelência. Existimos para acelerar sonhos e garantir que uma grande ideia encontre seu primeiro passo digital com segurança e solidez.",
-    icon: <MobileIcon />,
+    icon: <BuildingFlagIcon />,
   },
 ];
 
