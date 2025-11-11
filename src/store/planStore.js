@@ -1,21 +1,32 @@
-import { create } from 'zustand';
+import { create } from "zustand";
+
+const initialPlan = {
+  id: "",
+  title: "",
+  description: "",
+  includeHosting: false,
+  includeSupport: false,
+};
 
 const usePlanStore = create((set) => ({
-  planSelected: {
-    title: '',
-    value: 0,
-    description: '',
-    benefits: [],
-  },
-  setPlanSelected: (plan) => set({ planSelected: plan }),
-  resetPlan: () =>
+  planSelected: initialPlan,
+  setPlanSelected: (plan) =>
     set({
       planSelected: {
-        title: '',
-        value: 0,
-        description: '',
-        benefits: [],
+        ...initialPlan,
+        ...plan,
       },
+    }),
+  updatePlanSelected: (updates) =>
+    set((state) => ({
+      planSelected: {
+        ...state.planSelected,
+        ...updates,
+      },
+    })),
+  resetPlan: () =>
+    set({
+      planSelected: initialPlan,
     }),
 }));
 
