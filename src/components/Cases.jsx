@@ -1,6 +1,6 @@
 import "smart-webcomponents-react/source/styles/smart.default.css";
 import "../styles/SmartCaroucel.css";
-import { Carousel } from "smart-webcomponents-react/carousel";
+import Carousel from "smart-webcomponents-react/carousel";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 
