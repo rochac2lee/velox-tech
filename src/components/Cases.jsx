@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 
 import caseJess from "../assets/images/cases/jessikcustodio.com.br.png";
-import caseCCI from "../assets/images/cases/canal-comunicacao-interna.png";
+import caseWhisper from "../assets/images/cases/canal-comunicacao-interna.png";
 import caseCampyng from "../assets/images/cases/campyng.com.br.png";
 import caseIfpa from "../assets/images/cases/ifparequerimentos.replit.app.png";
 import caseEduqfy from "../assets/images/cases/eduqfy.com.br.png";
@@ -26,14 +26,24 @@ const casesData = [
   },
   {
     id: 2,
-    imageUrl: caseCCI.src,
-    title: "Canal de Comunicação Interna ",
-    brand: "Canal de Comunicação Interna",
+    imageUrl: caseWhisper.src,
+    title: "Canal de Comunicação Interna",
+    brand: "Whisper",
     description:
       "Canal de comunicação interna 100% anonima para empresas, com sistema de login e controle de acesso.",
     tags: ["Sistema web", "Comunicação interna", "Empresa", "Anonimato"],
-    site: "",
-    link: "",
+    site: "https://github.com/rochac2lee/whisper",
+    link: "https://github.com/rochac2lee/whisper",
+  },
+  {
+    id: 3,
+    imageUrl: caseCampyng.src,
+    title: "Campyng",
+    brand: "Campyng",
+    description: "Plataforma web para divulgação de campings",
+    tags: ["Sistema web", "Marketing", "Campanhas", "Empresa"],
+    site: "campyng.com.br",
+    link: "https://campyng.com.br",
   },
   {
     id: 4,
