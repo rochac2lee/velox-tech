@@ -13,8 +13,8 @@ const navbarLinks = [
   { label: "FAQ", href: "/#FAQ", ariaLabel: "FAQ" },
 ];
 
-const goToPlans = () => {
-  window.location.href = "/#pricing";
+const goToNewAppHero = () => {
+  window.location.href = "/#new-app-hero";
 };
 
 export const Navbar = () => {
@@ -68,10 +68,10 @@ export const Navbar = () => {
           <div className="grow basis-0 gap-3 justify-end hidden lg:flex">
             <button
               className="contained-button text-sm w-64 sm:w-48 h-10 mr-0 mb-2 sm:mb-0"
-              onClick={goToPlans}
+              onClick={goToNewAppHero}
               aria-label="Criar conta grátis"
             >
-              Criar conta grátis
+              Criar meu MVP
             </button>
             {/* <a
               className="text-white main-border-gray rounded-xl
