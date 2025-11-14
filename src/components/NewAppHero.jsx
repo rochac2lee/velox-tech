@@ -172,16 +172,17 @@ export const NewAppHero = () => {
 
   return (
     <section
-      className="w-screen flex justify-center items-center bg-bgDark1 hero-bg-gradient min-h-screen"
+      className="w-full max-w-screen overflow-x-hidden flex justify-center items-center bg-bgDark1 hero-bg-gradient min-h-screen"
       id="home"
     >
-      <div className="w-full md:w-[800px] xl:w-[1200px] flex flex-col justify-center items-center pt-16 md:pt-20 lg:pt-24 px-4 md:px-8">
+      <div className="w-full max-w-[1200px] flex flex-col justify-center items-center pt-12 sm:pt-16 md:pt-20 lg:pt-24 px-3 sm:px-4 md:px-6 lg:px-8 pb-8 sm:pb-12">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
+          className="w-full text-center"
         >
-          <p className="text-secondaryColor text-sm sm:text-base mb-6 font-bold">
+          <p className="text-secondaryColor text-xs sm:text-sm md:text-base mb-4 sm:mb-6 font-bold">
             Seu Projeto + Nossa Expertise = 🚀
           </p>
         </motion.div>
@@ -189,25 +190,56 @@ export const NewAppHero = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="w-full bg-bgDark2 rounded-xl border border-gray-700 p-4 sm:p-6"
+          className="w-full bg-bgDark2 rounded-lg sm:rounded-xl border border-gray-700 p-3 sm:p-4 md:p-6"
         >
           {/* Header com saudação */}
-          <div className="mb-4">
-            <h2 className="text-primaryText text-xl sm:text-2xl font-medium">
+          <div className="mb-3 sm:mb-4">
+            <h2 className="text-primaryText text-lg sm:text-xl md:text-2xl font-medium">
               O que vamos construir hoje?
             </h2>
           </div>
 
           {/* Campo de textarea principal */}
-          <div className="mb-4">
-            <textarea
-              ref={textareaRef}
-              placeholder={placeholderText || " "}
-              rows={4}
-              className="w-full bg-bgDark1 rounded-xl px-4 py-3 text-primaryText text-base sm:text-lg placeholder-secondaryText focus:outline-none focus:ring-2 focus:ring-primaryColor border border-gray-600 hover:border-gray-500 transition resize-none"
-              value={projectDescription}
-              onChange={(e) => setProjectDescription(e.target.value)}
-            />
+          <div className="mb-3 sm:mb-4 relative">
+            <div className="relative bg-bgDark1 rounded-lg sm:rounded-xl border border-gray-600 hover:border-gray-500 transition focus-within:border-primaryColor focus-within:ring-2 focus-within:ring-primaryColor">
+              <textarea
+                ref={textareaRef}
+                placeholder={placeholderText || " "}
+                rows={5}
+                className="w-full bg-transparent rounded-lg sm:rounded-xl px-3 sm:px-4 pt-2.5 sm:pt-3 pb-12 sm:pb-14 text-primaryText text-sm sm:text-base md:text-lg placeholder-secondaryText focus:outline-none resize-none"
+                value={projectDescription}
+                onChange={(e) => setProjectDescription(e.target.value)}
+              />
+              {/* Controles dentro do textarea */}
+              <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-3 sm:px-4 py-2 border-t border-gray-700">
+                {/* Lado esquerdo - Paperclip */}
+                <button
+                  onClick={handleAttachClick}
+                  className="flex items-center justify-center text-secondaryText hover:text-primaryText transition cursor-pointer gap-1.5 sm:gap-2"
+                  aria-label="Anexar arquivo"
+                >
+                  <PaperclipIcon />
+                  <span className="text-xs sm:text-sm font-medium hidden sm:inline">
+                    Anexar arquivos (logotipo, criativos, etc.)
+                  </span>
+                </button>
+
+                {/* Lado direito - Botão iniciar projeto */}
+                <button
+                  className={`px-3 sm:px-4 md:px-6 h-8 sm:h-9 md:h-10 flex items-center justify-center gap-1.5 sm:gap-2 font-semibold text-xs sm:text-sm md:text-base rounded-md sm:rounded-lg transition ${
+                    !selectedAppType || projectDescription === ""
+                      ? "bg-gray-600 text-gray-400 cursor-not-allowed opacity-50"
+                      : "contained-button"
+                  }`}
+                  aria-label="Iniciar projeto"
+                  disabled={!selectedAppType || projectDescription === ""}
+                >
+                  <span className="hidden sm:inline">Iniciar projeto</span>
+                  <span className="sm:hidden">Iniciar</span>
+                  <SendIcon />
+                </button>
+              </div>
+            </div>
           </div>
 
           {/* Input file oculto */}
@@ -227,7 +259,7 @@ export const NewAppHero = () => {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="mb-4 flex flex-wrap gap-2"
+                className="mb-3 sm:mb-4 flex flex-wrap gap-2"
               >
                 {attachedFiles.map((fileItem) => {
                   const FileTypeIcon = getFileIcon(
@@ -240,16 +272,16 @@ export const NewAppHero = () => {
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.8 }}
-                      className="flex items-center gap-2 bg-bgDark1 rounded-lg px-3 py-2 border border-gray-600 hover:border-gray-500 transition"
+                      className="flex items-center gap-1.5 sm:gap-2 bg-bgDark1 rounded-md sm:rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-600 hover:border-gray-500 transition w-full sm:w-auto"
                     >
                       <div className="flex-shrink-0 text-secondaryText">
                         <FileTypeIcon />
                       </div>
-                      <div className="flex flex-col min-w-0 max-w-[200px]">
-                        <p className="text-primaryText text-sm font-medium truncate">
+                      <div className="flex flex-col min-w-0 flex-1 sm:flex-initial sm:max-w-[150px] md:max-w-[200px]">
+                        <p className="text-primaryText text-xs sm:text-sm font-medium truncate">
                           {fileItem.name}
                         </p>
-                        <p className="text-secondaryText text-xs">
+                        <p className="text-secondaryText text-[10px] sm:text-xs">
                           {formatFileSize(fileItem.size)}
                         </p>
                       </div>
@@ -267,65 +299,86 @@ export const NewAppHero = () => {
             )}
           </AnimatePresence>
 
-          {/* Controles abaixo do textarea */}
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
-            {/* Lado esquerdo - Paperclip */}
-            <div className="flex items-center gap-4">
-              <button
-                onClick={handleAttachClick}
-                className="flex items-center justify-center text-secondaryText hover:text-primaryText transition cursor-pointer gap-2"
-                aria-label="Anexar arquivo"
-              >
-                <PaperclipIcon />
-                <span className="text-sm font-medium">
-                  Anexar arquivos (logotipo, criativos, etc.)
-                </span>
-              </button>
-            </div>
-
-            {/* Lado direito - Link e Start chat */}
-            <div className="flex items-center gap-4">
-              <button
-                className={`px-6 h-10 sm:h-12 flex items-center gap-2 font-semibold rounded-lg transition ${
-                  !selectedAppType || projectDescription === ""
-                    ? "bg-gray-600 text-gray-400 cursor-not-allowed opacity-50"
-                    : "contained-button"
-                }`}
-                aria-label="Start chat"
-                disabled={!selectedAppType || projectDescription === ""}
-              >
-                Iniciar projeto
-                <SendIcon />
-              </button>
-            </div>
-          </div>
-
           {/* Botões de seleção de tipo de app */}
-          <div className="flex flex-wrap gap-2 sm:gap-3 pt-4 border-t border-gray-700">
-            {appTypes.map((appType) => {
-              const Icon = appType.icon;
-              const isSelected = selectedAppType === appType.id;
-              return (
-                <button
-                  key={appType.id}
-                  onClick={() => setSelectedAppType(appType.id)}
-                  className={`flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg font-medium text-sm sm:text-base transition ${
-                    isSelected
-                      ? "bg-bgDark1 text-primaryText border border-primaryColor"
-                      : "bg-bgDark1 text-secondaryText hover:text-primaryText hover:bg-bgDark3 border border-transparent"
-                  }`}
-                  aria-label={appType.label}
-                >
-                  <Icon />
-                  <span>{appType.label}</span>
-                  {appType.beta && (
-                    <span className="bg-primaryColor text-primaryText text-xs px-2 py-0.5 rounded font-semibold">
-                      Beta
+          <div className="pt-3 sm:pt-4 border-t border-gray-700 overflow-hidden">
+            <div
+              className="flex gap-2 sm:gap-3 overflow-x-auto sm:overflow-x-visible sm:flex-wrap pb-1"
+              style={{
+                scrollbarWidth: "thin",
+                scrollbarColor: "rgb(75, 85, 99) transparent",
+                WebkitOverflowScrolling: "touch",
+              }}
+            >
+              {appTypes.map((appType) => {
+                const Icon = appType.icon;
+                const isSelected = selectedAppType === appType.id;
+                return (
+                  <motion.button
+                    key={appType.id}
+                    onClick={() => setSelectedAppType(appType.id)}
+                    className={`flex items-center gap-1.5 sm:gap-2 rounded-md sm:rounded-lg font-medium text-xs sm:text-sm md:text-base transition flex-shrink-0 ${
+                      isSelected
+                        ? "bg-bgDark1 text-primaryText border border-primaryColor px-3 sm:px-4 md:px-5 py-2 sm:py-2.5"
+                        : "bg-bgDark1 text-secondaryText hover:text-primaryText hover:bg-bgDark3 border border-transparent p-2 sm:p-2.5 sm:px-3 sm:py-2"
+                    }`}
+                    aria-label={appType.label}
+                    title={!isSelected ? appType.label : undefined}
+                    layout
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  >
+                    <Icon />
+                    {/* Mobile: mostrar texto apenas quando selecionado (com animação) */}
+                    <AnimatePresence mode="wait">
+                      {isSelected && (
+                        <motion.div
+                          key={`text-mobile-${appType.id}`}
+                          initial={{ maxWidth: 0, opacity: 0 }}
+                          animate={{ maxWidth: 300, opacity: 1 }}
+                          exit={{ maxWidth: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                          className="overflow-hidden sm:hidden"
+                        >
+                          <span className="whitespace-nowrap inline-block">
+                            {appType.label}
+                          </span>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                    {/* Desktop: sempre mostrar texto */}
+                    <span className="hidden sm:inline whitespace-nowrap">
+                      {appType.label}
                     </span>
-                  )}
-                </button>
-              );
-            })}
+                    {/* Mobile: badge beta apenas quando selecionado (com animação) */}
+                    <AnimatePresence mode="wait">
+                      {isSelected && appType.beta && (
+                        <motion.div
+                          key={`beta-mobile-${appType.id}`}
+                          initial={{ maxWidth: 0, opacity: 0 }}
+                          animate={{ maxWidth: 50, opacity: 1 }}
+                          exit={{ maxWidth: 0, opacity: 0 }}
+                          transition={{
+                            duration: 0.3,
+                            ease: "easeInOut",
+                            delay: 0.1,
+                          }}
+                          className="overflow-hidden sm:hidden"
+                        >
+                          <span className="bg-primaryColor text-primaryText text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 rounded font-semibold whitespace-nowrap inline-block">
+                            Beta
+                          </span>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                    {/* Desktop: badge beta sempre visível quando existe */}
+                    {appType.beta && (
+                      <span className="hidden sm:inline bg-primaryColor text-primaryText text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 rounded font-semibold whitespace-nowrap">
+                        Beta
+                      </span>
+                    )}
+                  </motion.button>
+                );
+              })}
+            </div>
           </div>
         </motion.div>
       </div>
