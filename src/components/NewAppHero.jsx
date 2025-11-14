@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { PaperclipIcon } from "../assets/icons/PaperclipIcon";
 import { LinkIcon } from "../assets/icons/LinkIcon";
 import { SendIcon } from "../assets/icons/SendIcon";
@@ -19,6 +19,10 @@ export const NewAppHero = () => {
   const [attachedFiles, setAttachedFiles] = useState([]);
   const fileInputRef = useRef(null);
   const [projectDescription, setProjectDescription] = useState("");
+  const [placeholderText, setPlaceholderText] = useState("");
+  const textareaRef = useRef(null);
+
+  const fullPlaceholder = "Descreva a ideia do seu MVP...";
   const appTypes = [
     { id: "landing", label: "Landing Page", icon: GlobeIcon },
     { id: "web", label: "Sistema web", icon: WebSystemIcon },
@@ -143,6 +147,29 @@ export const NewAppHero = () => {
     fileInputRef.current?.click();
   };
 
+  // Efeito de digitação no placeholder ao carregar
+  useEffect(() => {
+    setPlaceholderText("");
+    let currentIndex = 0;
+
+    const typingInterval = setInterval(() => {
+      if (currentIndex < fullPlaceholder.length) {
+        setPlaceholderText(fullPlaceholder.slice(0, currentIndex + 1));
+        currentIndex++;
+      } else {
+        clearInterval(typingInterval);
+        // Depois de terminar de escrever, foca no textarea
+        setTimeout(() => {
+          if (textareaRef.current) {
+            textareaRef.current.focus();
+          }
+        }, 300);
+      }
+    }, 50); // Velocidade de digitação (50ms por letra)
+
+    return () => clearInterval(typingInterval);
+  }, [fullPlaceholder]);
+
   return (
     <section
       className="w-screen flex justify-center items-center bg-bgDark1 hero-bg-gradient min-h-screen"
@@ -174,7 +201,8 @@ export const NewAppHero = () => {
           {/* Campo de textarea principal */}
           <div className="mb-4">
             <textarea
-              placeholder="Descreva a ideia do seu MVP..."
+              ref={textareaRef}
+              placeholder={placeholderText || " "}
               rows={4}
               className="w-full bg-bgDark1 rounded-xl px-4 py-3 text-primaryText text-base sm:text-lg placeholder-secondaryText focus:outline-none focus:ring-2 focus:ring-primaryColor border border-gray-600 hover:border-gray-500 transition resize-none"
               value={projectDescription}
