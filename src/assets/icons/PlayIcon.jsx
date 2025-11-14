@@ -1,0 +1,10 @@
+export const PlayIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className="w-5 h-5"
+  >
+    <polygon points="5 3 19 12 5 21 5 3" />
+  </svg>
+);
