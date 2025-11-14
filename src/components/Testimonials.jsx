@@ -7,17 +7,17 @@ import testimonial3 from "../assets/images/testimonial3.png";
 
 const testimonialsData = [
   {
-    customerName: "John Watkins",
-    customerTitle: "Founder of Dashflow",
+    customerName: "Jessik Custódio",
+    customerTitle: "Doutora em Educação",
     content:
-      "The powerful analytic tools have helped us streamline our processes and make data-driven decisions that positively impact our efficiency. Tailcast has been a game-changer for our business. The platform is easy to use, and the insights we've gained have driven significant improvements.",
+      "Eu precisava de um site que transmitisse a seriedade e o rigor da minha Tese de Doutorado e do meu Produto Educacional. O trabalho da Velox Tech foi impecável. Eles conseguiram criar uma plataforma profissional, elegante e de fácil navegação (o jessikcustodio.com.br), que realmente valoriza o meu material acadêmico. Graças a este trabalho, sinto que minha pesquisa ganhou a vitrine digital que merecia. Recomendo 100%!",
     image: testimonial1,
   },
   {
-    customerName: "John Watkins",
-    customerTitle: "Founder of Dashflow",
+    customerName: "Emerson Silva",
+    customerTitle: "Corretor de Imóveis",
     content:
-      "The powerful analytic tools have helped us streamline our processes and make data-driven decisions that positively impact our efficiency. Tailcast has been a game-changer for our business. The platform is easy to use, and the insights we've gained have driven significant improvements.",
+      "Em todas as vezes que precisei do suporte do site, sempre foram muito prestativo correndo atrás para resolver o problema o mais rápido possível levando em consideração que algumas vezes não depende só da empresa. Um dos pontos que quero registrar aqui é que o Cleber não nos deixa no vácuo em relação a dar um retorno, em situações que o site parou de funcionar correndo atrás e sempre me deixando informado sobre o andamento do suporte, por esse motivo coloco o trabalho dele como Nota 10 em relação ao cliente.",
     image: testimonial2,
   },
   {
@@ -62,6 +62,7 @@ export const Testimonials = () => (
                     width="45px"
                     height="5px"
                     aria-label={testimonial.customerName}
+                    className="rounded-full"
                   />
                 </div>
                 <div className="flex flex-col ml-4">
