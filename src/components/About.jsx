@@ -40,8 +40,11 @@ export const About = () => {
                 Quem somos?
               </h2>
               <p className="mb-10 text-secondaryText leading-loose">
-                Somos uma empresa de tecnologia que ama criar produtos que
-                impactam as pessoas.
+                Somos a <b>Velox Tech</b>, uma empresa que transforma sua ideia
+                de negócio em um MVP essencial, rápido e sólido. Somos
+                especialistas em prover a base técnica para que você possa
+                validar seu conceito com excelência, conectando sua visão à
+                execução digital de forma eficiente.
               </p>
               <div className="mx-auto w-full max-w-6xl">
                 <div className="grid gap-8 sm:px-0 md:px-6 xl:px-0 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:grid-rows-[auto_auto] lg:gap-10">
