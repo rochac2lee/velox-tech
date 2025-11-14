@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import { PaperclipIcon } from "../assets/icons/PaperclipIcon";
-import { LinkIcon } from "../assets/icons/LinkIcon";
 import { SendIcon } from "../assets/icons/SendIcon";
 import { XIcon } from "../assets/icons/XIcon";
 import { WebSystemIcon } from "../assets/icons/WebSystemIcon";
@@ -13,6 +12,7 @@ import { PdfIcon } from "../assets/icons/PdfIcon";
 import { VideoIcon } from "../assets/icons/VideoIcon";
 import { ZipIcon } from "../assets/icons/ZipIcon";
 import { CodeFileIcon } from "../assets/icons/CodeFileIcon";
+import { ProjectModal } from "./ProjectModal";
 
 export const NewAppHero = () => {
   const [selectedAppType, setSelectedAppType] = useState("landing");
@@ -21,6 +21,7 @@ export const NewAppHero = () => {
   const [projectDescription, setProjectDescription] = useState("");
   const [placeholderText, setPlaceholderText] = useState("");
   const textareaRef = useRef(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const fullPlaceholder = "Descreva a ideia do seu MVP...";
   const appTypes = [
@@ -147,6 +148,12 @@ export const NewAppHero = () => {
     fileInputRef.current?.click();
   };
 
+  const handleStartProject = () => {
+    if (selectedAppType && projectDescription.trim() !== "") {
+      setIsModalOpen(true);
+    }
+  };
+
   // Efeito de digitação no placeholder ao carregar
   useEffect(() => {
     setPlaceholderText("");
@@ -255,6 +262,7 @@ export const NewAppHero = () => {
 
                 {/* Lado direito - Botão iniciar projeto */}
                 <button
+                  onClick={handleStartProject}
                   className={`px-3 sm:px-4 md:px-6 h-8 sm:h-9 md:h-10 flex items-center justify-center gap-1.5 sm:gap-2 font-semibold text-xs sm:text-sm md:text-base rounded-md sm:rounded-lg transition ${
                     !selectedAppType || projectDescription === ""
                       ? "bg-gray-600 text-gray-400 cursor-not-allowed opacity-50"
@@ -410,6 +418,17 @@ export const NewAppHero = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Modal de confirmação e formulário */}
+      <ProjectModal
+        isOpen={isModalOpen}
+        setIsOpen={setIsModalOpen}
+        projectData={{
+          selectedAppType,
+          projectDescription,
+          attachedFiles,
+        }}
+      />
     </section>
   );
 };
