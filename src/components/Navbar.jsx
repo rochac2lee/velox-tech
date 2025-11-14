@@ -9,7 +9,7 @@ const navbarLinks = [
   { label: "Nosso Processo", href: "/#features", ariaLabel: "Features" },
   { label: "Cases", href: "/#cases", ariaLabel: "cases" },
   { label: "Depoimentos", href: "/#feedback", ariaLabel: "Feedback" },
-  { label: "Pré-briefing", href: "/#pricing", ariaLabel: "Pricing" },
+  // { label: "Pré-briefing", href: "/#pricing", ariaLabel: "Pricing" },
   { label: "FAQ", href: "/#FAQ", ariaLabel: "FAQ" },
 ];
 
