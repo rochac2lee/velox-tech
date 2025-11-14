@@ -170,10 +170,39 @@ export const NewAppHero = () => {
     return () => clearInterval(typingInterval);
   }, [fullPlaceholder]);
 
+  // Efeito para focar no textarea quando o hash for #new-mvp
+  useEffect(() => {
+    const focusTextarea = () => {
+      if (window.location.hash === "#new-mvp") {
+        setTimeout(() => {
+          if (textareaRef.current) {
+            textareaRef.current.focus();
+          }
+        }, 300);
+      }
+    };
+
+    const handleHashChange = () => {
+      focusTextarea();
+    };
+
+    // Verifica o hash inicial ao carregar a página
+    if (window.location.hash === "#new-mvp") {
+      focusTextarea();
+    }
+
+    // Escuta mudanças no hash
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
+
   return (
     <section
       className="w-full max-w-screen overflow-x-hidden flex justify-center items-center bg-bgDark1 hero-bg-gradient min-h-screen"
-      id="home"
+      id="new-mvp"
     >
       <div className="w-full max-w-[1200px] flex flex-col justify-center items-center pt-12 sm:pt-16 md:pt-20 lg:pt-24 px-3 sm:px-4 md:px-6 lg:px-8 pb-8 sm:pb-12">
         <motion.div
@@ -235,7 +264,7 @@ export const NewAppHero = () => {
                   disabled={!selectedAppType || projectDescription === ""}
                 >
                   <span className="hidden sm:inline">Iniciar projeto</span>
-                  <span className="sm:hidden">Iniciar</span>
+                  <span className="sm:hidden">Iniciar Projeto</span>
                   <SendIcon />
                 </button>
               </div>
@@ -319,12 +348,11 @@ export const NewAppHero = () => {
                     className={`flex items-center gap-1.5 sm:gap-2 rounded-md sm:rounded-lg font-medium text-xs sm:text-sm md:text-base transition flex-shrink-0 ${
                       isSelected
                         ? "bg-bgDark1 text-primaryText border border-primaryColor px-3 sm:px-4 md:px-5 py-2 sm:py-2.5"
-                        : "bg-bgDark1 text-secondaryText hover:text-primaryText hover:bg-bgDark3 border border-transparent p-2 sm:p-2.5 sm:px-3 sm:py-2"
+                        : "bg-bgDark1 text-secondaryText hover:text-primaryText hover:bg-bgDark3 border border-transparent p-2 sm:p-2.5 sm:px-4 md:px-5 sm:py-2.5"
                     }`}
                     aria-label={appType.label}
                     title={!isSelected ? appType.label : undefined}
-                    layout
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    layout={false}
                   >
                     <Icon />
                     {/* Mobile: mostrar texto apenas quando selecionado (com animação) */}
