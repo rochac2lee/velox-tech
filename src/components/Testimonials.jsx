@@ -21,10 +21,10 @@ const testimonialsData = [
     image: testimonial2,
   },
   {
-    customerName: "John Watkins",
-    customerTitle: "Founder of Dashflow",
+    customerName: "Joice Elaine de Melo",
+    customerTitle: "Sócia administradora",
     content:
-      "The powerful analytic tools have helped us streamline our processes and make data-driven decisions that positively impact our efficiency. Tailcast has been a game-changer for our business. The platform is easy to use, and the insights we've gained have driven significant improvements.",
+      "O suporte prestado foi excelente, a qualidade do serviço entregue superou nossas expectativas, todos os prazos foram cumpridos. Fomos bem orientado durante todo o processo, gostei especialmente da atenção aos detalhes, do layout e da rapidez nas respostas, não vejo nada a melhorar no momento e certamente recomendaria o seu trabalho a outras pessoas.",
     image: testimonial3,
   },
 ];
