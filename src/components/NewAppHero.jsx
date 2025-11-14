@@ -15,14 +15,14 @@ import { ZipIcon } from "../assets/icons/ZipIcon";
 import { CodeFileIcon } from "../assets/icons/CodeFileIcon";
 
 export const NewAppHero = () => {
-  const [selectedAppType, setSelectedAppType] = useState("web");
+  const [selectedAppType, setSelectedAppType] = useState("landing");
   const [attachedFiles, setAttachedFiles] = useState([]);
   const fileInputRef = useRef(null);
-
+  const [projectDescription, setProjectDescription] = useState("");
   const appTypes = [
+    { id: "landing", label: "Landing Page", icon: GlobeIcon },
     { id: "web", label: "Sistema web", icon: WebSystemIcon },
     { id: "app", label: "Aplicativo", icon: MobileAppIcon },
-    { id: "landing", label: "Landing Page", icon: GlobeIcon },
   ];
 
   const formatFileSize = (bytes) => {
@@ -177,6 +177,8 @@ export const NewAppHero = () => {
               placeholder="Descreva a ideia do seu MVP..."
               rows={4}
               className="w-full bg-bgDark1 rounded-xl px-4 py-3 text-primaryText text-base sm:text-lg placeholder-secondaryText focus:outline-none focus:ring-2 focus:ring-primaryColor border border-gray-600 hover:border-gray-500 transition resize-none"
+              value={projectDescription}
+              onChange={(e) => setProjectDescription(e.target.value)}
             />
           </div>
 
@@ -256,8 +258,13 @@ export const NewAppHero = () => {
             {/* Lado direito - Link e Start chat */}
             <div className="flex items-center gap-4">
               <button
-                className="contained-button px-6 h-10 sm:h-12 flex items-center gap-2 font-semibold"
+                className={`px-6 h-10 sm:h-12 flex items-center gap-2 font-semibold rounded-lg transition ${
+                  !selectedAppType || projectDescription === ""
+                    ? "bg-gray-600 text-gray-400 cursor-not-allowed opacity-50"
+                    : "contained-button"
+                }`}
                 aria-label="Start chat"
+                disabled={!selectedAppType || projectDescription === ""}
               >
                 Iniciar projeto
                 <SendIcon />
