@@ -6,6 +6,7 @@ import "@fontsource/inter/700.css";
 import "@fontsource/inter/800.css";
 import "@fontsource/inter/900.css";
 import "../assets/fonts/font.css";
+import { WhatsAppButton } from "../components/WhatsAppButton.jsx";
 
 export interface Props {
   title: string;
@@ -41,6 +42,7 @@ const { title } = Astro.props;
     <main aria-label="Main content">
       <slot />
     </main>
+    <WhatsAppButton client:load />
     <style is:global>
       html {
         font-family: "Host Grotesk", san-serif;
