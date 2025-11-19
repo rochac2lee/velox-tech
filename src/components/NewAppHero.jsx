@@ -428,6 +428,16 @@ export const NewAppHero = () => {
           projectDescription,
           attachedFiles,
         }}
+        onSuccess={() => {
+          // Limpar campos do NewAppHero
+          setSelectedAppType("landing");
+          setProjectDescription("");
+          setAttachedFiles([]);
+          // Resetar o input de arquivo se houver ref
+          if (fileInputRef.current) {
+            fileInputRef.current.value = "";
+          }
+        }}
       />
     </section>
   );
