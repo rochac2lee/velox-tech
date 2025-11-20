@@ -1,0 +1,25 @@
+{
+  "name": "Velox Tech - Transforme Sua Ideia em Realidade Digital",
+  "short_name": "Velox Tech",
+  "description": "Soluções digitais essenciais para transformar sua ideia em realidade. Criamos MVPs de forma rápida, eficiente e acessível.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#26272b",
+  "theme_color": "#26272b",
+  "lang": "pt-BR",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "business",
+    "technology",
+    "productivity"
+  ],
+  "screenshots": []
+}

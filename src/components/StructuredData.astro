@@ -1,0 +1,153 @@
+---
+export interface Props {
+  type?: 'Organization' | 'WebSite' | 'WebPage' | 'Service';
+  pageName?: string;
+}
+
+const { type = 'Organization', pageName } = Astro.props;
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Velox Tech",
+  "description": "Soluções digitais essenciais, fornecendo a base técnica especializada que os empreendedores precisam para validar suas ideias de negócio de forma rápida, eficiente e acessível.",
+  "url": "https://veloxtech.com.br",
+  "logo": "https://veloxtech.com.br/favicon.svg",
+  "foundingDate": "2024",
+  "email": "cleberlee.rocha@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "BR"
+  },
+  "sameAs": [
+    "https://github.com/rochac2lee"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Service",
+    "email": "cleberlee.rocha@gmail.com"
+  }
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Velox Tech",
+  "description": "Desenvolvemos MVPs, landing pages, aplicativos mobile, sistemas web e dashboards",
+  "url": "https://veloxtech.com.br",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://veloxtech.com.br/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Velox Tech",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://veloxtech.com.br/favicon.svg"
+    }
+  }
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Software Development",
+  "provider": {
+    "@type": "Organization",
+    "name": "Velox Tech",
+    "url": "https://veloxtech.com.br"
+  },
+  "areaServed": "BR",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Serviços de Desenvolvimento",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Desenvolvimento de MVP",
+          "description": "Criação de Minimum Viable Product para validação de ideias de negócio"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Landing Page",
+          "description": "Desenvolvimento de páginas de conversão otimizadas"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Aplicativo Mobile",
+          "description": "Desenvolvimento de aplicativos para iOS e Android"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Sistema Web",
+          "description": "Desenvolvimento de sistemas web personalizados"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Dashboard",
+          "description": "Criação de dashboards e painéis de controle"
+        }
+      }
+    ]
+  }
+};
+
+const webPageSchema = pageName ? {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": pageName,
+  "url": Astro.url.href,
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Velox Tech",
+    "url": "https://veloxtech.com.br"
+  },
+  "inLanguage": "pt-BR"
+} : null;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://veloxtech.com.br"
+    }
+  ]
+};
+
+let schemas = [];
+
+if (type === 'Organization') {
+  schemas = [organizationSchema, websiteSchema, serviceSchema];
+} else if (type === 'WebSite') {
+  schemas = [websiteSchema];
+} else if (type === 'WebPage' && webPageSchema) {
+  schemas = [webPageSchema];
+} else if (type === 'Service') {
+  schemas = [serviceSchema];
+}
+---
+
+{schemas.map((schema) => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}
+

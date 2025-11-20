@@ -1,0 +1,29 @@
+INSTRUÇÕES PARA CRIAR IMAGEM OG (Open Graph)
+
+Crie uma imagem chamada "og-image.png" com as seguintes especificações:
+
+Dimensões: 1200 x 630 pixels (proporção 1.91:1)
+Formato: PNG ou JPG
+Tamanho máximo: 8 MB (recomendado < 1 MB)
+
+Conteúdo sugerido:
+- Logo da Velox Tech centralizada
+- Texto: "Transforme Sua Ideia em Realidade Digital"
+- Subtexto: "MVPs, Landing Pages, Apps e Sistemas Web"
+- Cor de fundo: #26272b (bg-bgDark2) ou gradiente similar
+- Cores de destaque: Use as cores primárias do site
+
+Ferramentas recomendadas:
+- Canva (https://www.canva.com/)
+- Figma (https://www.figma.com/)
+- Adobe Photoshop/Illustrator
+
+Após criar, salve como: /public/og-image.png
+
+Teste a imagem:
+- Facebook: https://developers.facebook.com/tools/debug/
+- Twitter: https://cards-dev.twitter.com/validator
+- LinkedIn: https://www.linkedin.com/post-inspector/
+
+IMPORTANTE: Delete este arquivo após criar a imagem OG.
+

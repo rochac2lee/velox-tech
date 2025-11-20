@@ -1,10 +1,26 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
+import sitemap from "@astrojs/sitemap";
 import { fileURLToPath } from "url";
 
 export default defineConfig({
-  integrations: [react(), tailwind()],
+  site: "https://veloxtech.com.br",
+  integrations: [
+    react(),
+    tailwind(),
+    sitemap({
+      changefreq: "weekly",
+      priority: 0.7,
+      lastmod: new Date(),
+      customPages: [
+        "https://veloxtech.com.br/",
+        "https://veloxtech.com.br/about",
+        "https://veloxtech.com.br/terms",
+        "https://veloxtech.com.br/privacy-policy",
+      ],
+    }),
+  ],
   vite: {
     envPrefix: "VITE_",
     resolve: {

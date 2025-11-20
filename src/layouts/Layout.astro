@@ -7,36 +7,100 @@ import "@fontsource/inter/800.css";
 import "@fontsource/inter/900.css";
 import "../assets/fonts/font.css";
 import { WhatsAppButton } from "../components/WhatsAppButton.jsx";
+import StructuredData from "../components/StructuredData.astro";
 
 export interface Props {
   title: string;
+  description?: string;
+  keywords?: string;
+  ogImage?: string;
+  ogType?: string;
+  canonicalURL?: string;
+  noindex?: boolean;
+  structuredDataType?: 'Organization' | 'WebSite' | 'WebPage' | 'Service';
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = "Soluções digitais essenciais para transformar sua ideia em realidade. Criamos MVPs de forma rápida, eficiente e acessível. Desenvolvimento de landing pages, sistemas web, aplicativos mobile e dashboards.",
+  keywords = "MVP, desenvolvimento de software, landing page, aplicativo mobile, sistema web, dashboard, desenvolvimento ágil, startup, transformação digital, desenvolvimento MVP, criar aplicativo, criar site, Velox Tech",
+  ogImage = "https://veloxtech.com.br/og-image.png",
+  ogType = "website",
+  canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+  noindex = false,
+  structuredDataType = 'Organization',
+} = Astro.props;
+
+const siteURL = "https://veloxtech.com.br";
+const fullTitle = title.includes("Velox") ? title : `${title} | Velox Tech`;
 ---
 
 <!doctype html>
-<html lang="en" class="bg-bgDark2">
+<html lang="pt-BR" class="bg-bgDark2">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="Criamos o MVP do seu negócio de forma rápida, eficiente e acessível"
-    />
-    <meta
-      name="keywords"
-      content="MVP, Negócio, Criação, Desenvolvimento, Acessível, Rápido, Eficiente"
-    />
+    
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
     <meta name="author" content="Velox Tech" />
-    <meta name="robots" content="index, follow" />
-    <meta name="googlebot" content="index, follow" />
-    <meta name="bingbot" content="index, follow" />
-    <meta name="yandexbot" content="index, follow" />
-    <meta name="sitemap" content="https://veloxtech.com.br/sitemap.xml" />
-    <title>{title}</title>
+    <meta name="language" content="Portuguese" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    
+    <!-- Robots Meta Tags -->
+    {noindex ? (
+      <meta name="robots" content="noindex, nofollow" />
+      <meta name="googlebot" content="noindex, nofollow" />
+    ) : (
+      <>
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="bingbot" content="index, follow" />
+      </>
+    )}
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={fullTitle} />
+    <meta property="og:site_name" content="Velox Tech" />
+    <meta property="og:locale" content="pt_BR" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+    
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#26272b" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <!-- Sitemap & Manifest -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Structured Data -->
+    <StructuredData type={structuredDataType} pageName={title} />
   </head>
   <body class="bg-bgDark2">
     <main aria-label="Main content">
