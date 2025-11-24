@@ -58,7 +58,7 @@ export const Testimonials = () => (
                 <div>
                   <img
                     src={testimonial.image.src}
-                    alt="Customer avatar"
+                    alt={testimonial.customerName}
                     width="45px"
                     height="5px"
                     aria-label={testimonial.customerName}

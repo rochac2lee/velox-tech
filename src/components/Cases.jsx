@@ -204,6 +204,7 @@ export const Cases = () => {
               <img
                 src={selectedItem.imageUrl}
                 className="w-full max-h-[80vh] rounded-2xl object-contain"
+                alt={selectedItem.title}
               />
             </div>
           </div>

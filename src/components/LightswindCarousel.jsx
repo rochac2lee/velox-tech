@@ -192,6 +192,7 @@ export const LightswindCarousel = ({
                   <img
                     src={item.imageUrl}
                     className="absolute inset-0 w-full h-full object-contain"
+                    alt={item.title}
                   />
                 </div>
 
