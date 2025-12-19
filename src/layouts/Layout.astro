@@ -120,6 +120,9 @@ const fullTitle = title.includes("Velox") ? title : `${title} | Velox Tech`;
     
     <!-- Structured Data -->
     <StructuredData type={structuredDataType} pageName={title} />
+    
+    <!-- Slot para meta tags customizados de páginas específicas -->
+    <slot name="head" />
   </head>
   <body class="bg-bgDark2">
     <main aria-label="Main content">

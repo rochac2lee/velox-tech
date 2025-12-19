@@ -9,11 +9,16 @@ export const WhatsAppButton = () => {
   const phoneNumber = "5541984476998";
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowBubble(true);
-    }, 3000); // Aparece após 3 segundos
+    // Verifica se o usuário já fechou o modal antes
+    const wasDismissed = localStorage.getItem("whatsapp-bubble-dismissed");
 
-    return () => clearTimeout(timer);
+    if (!wasDismissed) {
+      const timer = setTimeout(() => {
+        setShowBubble(true);
+      }, 3000); // Aparece após 3 segundos
+
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const handleClick = () => {
@@ -23,6 +28,8 @@ export const WhatsAppButton = () => {
   const handleCloseBubble = (e) => {
     e.stopPropagation();
     setShowBubble(false);
+    // Salva no localStorage que o usuário fechou o modal
+    localStorage.setItem("whatsapp-bubble-dismissed", "true");
   };
 
   const handleSend = () => {
